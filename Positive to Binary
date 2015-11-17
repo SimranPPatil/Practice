@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+
+void bin(int n)
+{
+	if(n<= 1)
+	{
+	    printf("%d",n);
+	    return;
+	}
+    bin(n/2);
+	printf("%d",n%2);
+}
+
+void main()
+{
+	int n;
+	scanf("%d", &n);
+
+	int i=0;
+	bin(n);
+
+}
