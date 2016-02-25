@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+
+class photoCollection{
+
+private:
+
+	PNG ** album;
+	int albumsize;
+
+public:
+	void replicate(int k);
+
+};
+
+void replicate(int k){
+
+	if(k <= 1 )
+		return;
+	int x = albumsize * k;
+	PNG ** newarray = new PNG*[x];
+	
+	for(int i=0; i<x; i++){
+
+		if(album[i%albumsize] != NULL)
+			newarray[i] = new PNG(*(album[i % albumsize]));
+		else
+			newarray[i] = NULL;
+
+		
+	}
+
+
+	for(i=0	; i< albumsize; i++){
+		delete album[i];
+		album[i] = NULL;
+	}
+
+	delete []album;
+
+	album = newarray;
+
+}
